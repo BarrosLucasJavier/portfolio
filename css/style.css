@@ -3,15 +3,15 @@
 
 :root {
     --colorFondo: rgb(255, 255, 255); /* Fondo blanco */ 
-    --colorPrimario: rgb(70, 130, 180); /* Azul acero */ 
-    --colorSecundario: rgb(240, 248, 255); /* Azul Alice */ 
-    --colorDetalles: rgb(255, 165, 0); /* Naranja */ 
+    --colorPrimario: rgb(250, 218, 188); /* Azul acero */ 
+    --colorSecundario: rgb(237, 227, 238); /* Azul Alice */ 
+    --colorDetalles: rgb(178, 178, 178); /* Naranja */ 
     --colorTexto: rgb(34, 34, 34); /* Negro suave */
 }
 .temaSecundario {
     --colorFondo: rgb(30, 30, 36); /* Fondo oscuro */ 
     --colorPrimario: rgb(2, 128, 144); /* Azul oscuro */ 
-    --colorSecundario: rgb(187, 184, 145); /* Color neutro */ 
+    --colorSecundario: rgb(77, 77, 75); /* Color neutro */ 
     --colorDetalles: rgb(221, 96, 49); /* Naranja */ 
     --colorTexto: rgb(255, 255, 255); /* Blanco */
 }
@@ -40,6 +40,7 @@ header {
     transform: translate(-100%);
     transform-origin:left;
     transition: all 0.4s;
+    z-index: 100;
 }
 .menu ul {
     display: flex;
@@ -63,4 +64,66 @@ i {
 }
 .mostrar {
     transform: translate(0);
+}
+img {
+    width: 100%;
+}
+/* Inicio */
+.seccionInicio {
+    background-color: rgba(253, 253, 253, 0.472);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Lato',serif;
+    color: var(--colorTexto);
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.571);
+    border-radius: 15px;
+}
+.seccionInicio h1 {
+    align-self: flex-start;
+    font-size: 1.2rem;
+}
+.seccionInicio h2 {
+    align-self: flex-end;
+}
+.seccionInicio::after{
+    content: '';
+    width: 300px;
+    height: 15px;
+    background-color: var(--colorDetalles);
+    position: absolute;
+    top: 0;
+    left: 15px;
+    box-shadow: 1px 5px 1px var(--colorTexto);
+    transform: skew(30deg);
+}
+.seccionInicio::before{
+    content: '';
+    width: 300px;
+    height: 15px;
+    background-color: var(--colorDetalles);
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    transform: skew(30deg);
+    box-shadow: -1px -5px 1px var(--colorTexto);
+}
+.seccionInicio img {
+    width: 200px;
+    border-radius: 50%;
+}
+.seccionDecoracion {
+    background-image: url('../images/code.jpg');
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+.seccionDecoracion i{
+    font-size: 5rem;
+    color: var(--colorTexto);
 }
