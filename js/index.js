@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => { 
 
-    const btnTema = document.querySelector('#btnTema')
-    const btnBarras = document.querySelector('#btnBarras');
-    const btnCerrar = document.querySelector('#btnCerrar');
-    const body = document.querySelector('#body');
-    const menu = document.querySelector('.menu');
     /* Proyectos */
     let items = document.querySelectorAll('.seccionProyectos .fondoProyectos .fondo');
     let sig = document.getElementById('sig');
@@ -41,18 +36,31 @@ document.addEventListener('DOMContentLoaded', () => {
         items[itemActivo].classList.add('activo');
         miniaturas[itemActivo].classList.add('activo');   
 
+        let limite = miniaturas[itemActivo].getBoundingClientRect().y;
+        if (limite < 600 && limite > 400) {
+            miniaturas[itemActivo].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        }
+
         clearInterval(intervaloRefresco);
         intervaloRefresco = setInterval(()=>{
             sig.click();
         },5000)
     }
+
     miniaturas.forEach((miniatura, indice)=>{
         miniatura.addEventListener('click',()=>{
             itemActivo = indice;
             mostrarProyectos();
         });
     })
+
     /* tema */
+    
+    const btnTema = document.querySelector('#btnTema')
+    const btnBarras = document.querySelector('#btnBarras');
+    const btnCerrar = document.querySelector('#btnCerrar');
+    const body = document.querySelector('#body');
+    
     btnTema.addEventListener('click',function(){
         body.classList.toggle('temaSecundario');
     })
@@ -60,8 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('mostrar');
         
     })
+    /* Menu */
+    const menu = document.querySelector('.menu');
+    const nav = document.getElementById('menuUl');
+    console.log(nav);
+    
     btnCerrar.addEventListener('click',function (){
         menu.classList.toggle('mostrar');
         
     })
+    nav.addEventListener('click',()=>{
+        menu.classList.toggle('mostrar');
+    })
+
 });

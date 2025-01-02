@@ -28,6 +28,11 @@ body{
 }
 header {
     padding: 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 150;
+    background-color: var(--colorFondo);
+    width: 100%;
 }
 .menu {
     background-color: var(--colorSecundario);
@@ -82,6 +87,7 @@ img {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.571);
     border-radius: 15px;
+    margin: 5rem 0;
 }
 .seccionInicio h1 {
     align-self: flex-start;
@@ -217,7 +223,7 @@ img {
 }
 .seccionProyectos .fondoProyectos .fondo .contenido p:nth-child(1){
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
 }
 .seccionProyectos .fondoProyectos .fondo .contenido h2{
     margin: 1rem 0;
@@ -303,7 +309,7 @@ img {
     border-radius: 10px;
 }
 .miniaturas .item.activo {
-    filter: brightness(1.4);
+    filter: brightness(1.1);
 }
 .miniaturas .item .contenido {
     position: absolute;
@@ -312,4 +318,5 @@ img {
     border-radius: 10px;
     background-color: aliceblue;
     inset: auto 10px 10px 10px;
+    text-align:center;
 }
