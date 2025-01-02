@@ -4,8 +4,8 @@
 :root {
     --colorFondo: rgb(255, 255, 255); /* Fondo blanco */ 
     --colorPrimario: rgb(250, 218, 188); /* Azul acero */ 
-    --colorSecundario: rgb(237, 227, 238); /* Azul Alice */ 
-    --colorDetalles: rgb(178, 178, 178); /* Naranja */ 
+    --colorSecundario: rgb(175, 132, 179); /* Azul Alice */ 
+    --colorDetalles: rgb(34, 140, 194); /* Naranja */ 
     --colorTexto: rgb(34, 34, 34); /* Negro suave */
 }
 .temaSecundario {
@@ -59,7 +59,7 @@ header {
     font-size: 1.2rem;
 }
 i {
-    color: var(--colorPrimario);
+    color: var(--colorTexto);
     font-size: 1.3rem;
 }
 .mostrar {
@@ -126,4 +126,190 @@ img {
 .seccionDecoracion i{
     font-size: 5rem;
     color: var(--colorTexto);
+}
+/* sobre mi */
+.seccionSobreMi {
+    padding: 1rem;
+    text-align: justify;
+    color: var(--colorTexto);
+    background-color: var(--colorPrimario);
+    position: relative;
+}
+.seccionSobreMi::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    border-bottom: 50px solid var(--colorPrimario);
+    border-left: 0px solid transparent;
+    border-right: 100vw solid transparent;
+}
+.seccionSobreMi h3 {
+    padding: 1rem 0;
+    color: var(--colorSecundario);
+    text-align: center;
+    margin: 1rem 0;
+}
+.seccionSobreMi span{
+    font-weight:600;
+    color: var(--colorDetalles);
+    font-style: italic;
+}
+.seccionTriangulo1 {
+    width: 0;
+    height: 0;
+    border-top: 50px solid var(--colorPrimario);
+    border-left: 0px solid transparent;
+    border-right: 100vw solid transparent;
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    z-index: 1;
+}
+.seccionTriangulo2 {
+    width: 0;
+    height: 0;
+    border-top: 120px solid var(--colorPrimario);
+    border-left: 100vw solid transparent;
+    border-right: 0px solid transparent;
+    position: absolute;
+    left: 0;
+    bottom: -120px;
+    z-index: 1;
+}
+/* Proyectos */
+.seccionProyectos {
+    position: relative;
+    height: 100vh;
+    z-index: 0;
+}
+.seccionProyectos .fondoProyectos .fondo{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+.seccionProyectos .fondoProyectos .fondo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.seccionProyectos .fondoProyectos .fondo::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, var(--colorFondo) 30%,transparent);
+}
+.seccionProyectos .fondoProyectos .fondo .contenido {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+    color: var(--colorTexto);
+}
+.seccionProyectos .fondoProyectos .fondo .contenido p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+.seccionProyectos .fondoProyectos .fondo .contenido h2{
+    margin: 1rem 0;
+    font-size: 50px;
+}
+.seccionProyectos .fondoProyectos .fondo.activo{
+    opacity: 1;
+    z-index: 10;
+}
+@keyframes mostrarContenido {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.seccionProyectos .fondoProyectos .fondo.activo p:nth-child(1),
+.seccionProyectos .fondoProyectos .fondo.activo p:nth-child(3),
+.seccionProyectos .fondoProyectos .fondo.activo h2{
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: mostrarContenido .5s .4s ease-in-out 1 forwards;
+}
+.seccionProyectos .fondoProyectos .fondo.activo h2{
+    animation-delay: 1s;
+}
+.seccionProyectos .fondoProyectos .fondo.activo p:nth-child(3){
+    animation-delay: 1.3s;
+}
+.flechas {
+    margin-top: 2.5rem;
+    position: absolute;
+    top: 10%;
+    left: 30px;
+    z-index: 100;
+}
+.flechas button{
+    background-color: rgba(85, 79, 79, 0.356);
+    border: none;
+    font-family: monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: var(--colorTexto);
+    transition: .5s;
+}
+.flechas button:hover {
+    background-color: #eee;
+    color: black;
+}
+.miniaturas {
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    overflow: auto;
+    justify-content: start;
+}
+.miniaturas::-webkit-scrollbar {
+    width: 0;
+}
+.miniaturas .item {
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: 0.5s;
+    flex-shrink: 0;
+    box-shadow: 0px 0px 10px var(--colorTexto);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.miniaturas .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.miniaturas .item.activo {
+    filter: brightness(1.4);
+}
+.miniaturas .item .contenido {
+    position: absolute;
+    padding: 0.3rem;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: aliceblue;
+    inset: auto 10px 10px 10px;
 }
