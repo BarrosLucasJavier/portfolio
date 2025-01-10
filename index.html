@@ -8,37 +8,21 @@
 </head>
 <body id="body">
     <header>
-        <i class="fa-solid fa-bars" id="btnBarras"></i>
         <nav class="menu">
-            <i class="fa-solid fa-xmark" id="btnCerrar"></i>
-            <ul id="menuUl">
-                <li>
-                    <i class="fa-solid fa-house"></i>
-                    <a href="#inicio">Inicio</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-user"></i>
-                    <a href="#sobreMi">Sobre mí</a>
-                </li>
-                <li>
-                    <i class="fas fa-code"></i>
-                    <a href="#proyectos">Proyectos</a>
-                </li>
-                <li>
-                    <i class="fas fa-envelope"></i>
-                    <a href="#contacto">Contacto</a>
-                </li>
-            </ul>
+            <a class="menuItem activo" href="#inicio">Inicio</a>
+            <a class="menuItem " href="#sobreMi">Sobre mí</a>
+            <a class="menuItem " href="#proyectos">Proyectos</a>
+            <a class="menuItem " href="#contacto">Contacto</a>
         </nav>
     </header>
     <main>
-        <div class="seccionDecoracion">
-            <section class="seccionInicio" id="inicio">
+        <section class="seccionDecoracion" id="inicio">
+            <div class="seccionInicio" >
                 <h1>Hola, soy Lucas Barros desarrollador detallista y empático, apasionado por frontend y backend, siempre aprendiendo y mejorando.</h1>
                 <img src="./images/foto.png" alt="foto perfil">
                 <h2>Desarrollo Web Full Stack</h2>
-            </section>
-        </div>
+            </div>
+        </section>
         <section class="seccionSobreMi" id="sobreMi">
             <h3>Un Poco Sobre Mí</h3>
             <p>Soy un profesional detallista y organizado, apasionado por no dejar cosas pendientes y mantener la prolijidad en todo lo que hago. Me gusta escuchar a la gente y <span>aprender</span>  de sus experiencias. En el ámbito del desarrollo web, disfruto trabajando tanto en el backend como en el frontend. Sin embargo, prefiero seguir los lineamientos de un diseñador en el frontend. Mi enfoque meticuloso y mi <span>compromiso</span> con la calidad aseguran que cada proyecto en el que participo sea llevado a cabo con el máximo cuidado y precisión.</p>
@@ -48,28 +32,29 @@
             <div class="seccionTriangulo2"></div>
         </section> 
         <section class="seccionProyectos" id="proyectos">
+            <h3>Proyectos</h3>
             <div class="fondoProyectos">
                 <div class="fondo activo">
                     <img src="./images/proyectos/meetDesktop.png" alt="Proyecto Meet">
                     <div class="contenido">
-                        <p>Frontend Meet</p>
-                        <h2>Proyecto 01</h2>
+                        <p>Frontend</p>
+                        <h2>Meet</h2>
                         <p>Diseño de Meet para Frontend Mentor, un desafio que incluye tres versiones: mobile, tablet y desktop</p>
                     </div>
                 </div>
                 <div class="fondo">
                     <img src="./images/proyectos/splitterMobile.png" alt="Proyecto Splitter">
                     <div class="contenido">
-                        <p>Splitter</p>
-                        <h2>Proyecto 02</h2>
+                        <p>Frontend</p>
+                        <h2>Splitter</h2>
                         <p>Diseño de Spliter para Frontend Mentor, un desafio que incluye dos versiones: mobile y desktop. Funcionalidad en Javascript, calculador para propina</p>
                     </div>
                 </div>
                 <div class="fondo">
                     <img src="./images/proyectos/timeMobile.png" alt="Proyecto Meet">
                     <div class="contenido">
-                        <p>Time Tracking Dashboard</p>
-                        <h2>Proyecto 03</h2>
+                        <p>Dashboard</p>
+                        <h2>Time Tracking</h2>
                         <p>Diseño de Meet para Frontend Mentor, un desafio que incluye dos versiones: mobile y desktop. Ver la disposición óptima del sitio dependiendo del tamaño de la pantalla del dispositivo. Ver los estados de desplazamiento para todos los elementos interactivos de la página. Cambiar entre la visualización de estadísticas Diarias, Semanales y Mensuales</p>
                     </div>
                 </div>  
@@ -99,9 +84,51 @@
                 </div>
             </div>
         </section>
+        <section class="seccionContacto" id="contacto">
+            <hr>
+            <h3>Contacto</h3>
+            <div class="contactoBotones">
+                <div class="btnContacto">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="">LinkedIn</a>
+                </div>
+                <div class="btnContacto">
+                    <i class="fa-brands fa-github"></i>
+                    <a href="">Github</a>
+                </div>
+            </div>
+            <form action="" id="formContacto">
+                <fieldset>
+                    <legend>Deja tu mensaje</legend>
+                    <div class="campo">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre">
+                    </div>
+                    <div class="campo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea name="mensaje" id="mensaje" rows="8"></textarea>
+                    </div>
+                    <button class="btnContacto">Enviar</button>
+                </fieldset>
+            </form>
+        </section>
     </main>
     <button id="btnTema">Cambiar tema</button>
     <script src="https://kit.fontawesome.com/e0b4e5cac3.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "2ty5ErFWo0vea3JAE",
+        });
+    })();
+    </script>
     <script type="module" src="./js/index.js"></script>
 </body>
 </html>
